@@ -1,0 +1,104 @@
+I"Å3<h2 id="background">Background</h2>
+<p>A random walk is a path created by a series of choices, each of which is left entirely to chance. Random walks have practical applications in several areas of academia such as physics and economics.</p>
+
+<p>For this case, each step will consist of a randomly chosen set of coordinates (each between -4 and 4). This python program can produce simple to complex random walks by changing the number of points (the default number of points is 10,000). 
+Figure 1 below represents a random walk with the default number of points. The beginning starts at the green dot, and the gradient represents the path (from light to dark).</p>
+<p>&nbsp;</p>
+
+<h2 id="setting-up-the-random-walk-class">Setting up the random walk class</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># First, from the random module import choice
+</span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+</code></pre></div></div>
+<p>&nbsp;</p>
+
+<h2 id="creating-the-random-walk-class">Creating the random walk class</h2>
+<p>A class was perfect to use in this case since the code consisted of several parts, each of which had itsâ€™ own task. I created a set of empty lists, one for the x values and one for the y values.</p>
+
+<p>The get_step function is the main section of this class. First, the program randomly selects the direction and distance of a point using the choice method. I calculated the step by multiplying the direction and distance, meaning the possibilities for each step are [-4, 4].</p>
+
+<p>Each step is then added to the last value stored and appended to its respective list within the fill_walk function. The while loop runs this process until it has reached the number of points requested by the user.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RandomWalk</span><span class="p">:</span>
+    <span class="s">"""A random walk generator"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="s">"""Initialize attributes"""</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">num_points</span> <span class="o">=</span> <span class="n">num_points</span>
+
+        <span class="c1"># Create lists that will hold all x and y points
+</span>        <span class="c1"># all walks start at (0,0)
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">x_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">y_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_step</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Calculate all the points in the walk"""</span>
+        <span class="c1"># Choose positive or negative (Cartesian coordinate system)
+</span>        <span class="n">direction</span> <span class="o">=</span> <span class="n">choice</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>  <span class="c1"># choose distance
+</span>        <span class="n">step</span> <span class="o">=</span> <span class="n">direction</span> <span class="o">*</span> <span class="n">distance</span>
+        <span class="k">return</span> <span class="n">step</span>
+
+    <span class="k">def</span> <span class="nf">fill_walk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Insert and append calculated steps to list"""</span>
+        <span class="c1"># Keep taking steps until num_points has been reached
+</span>        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">x_values</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">num_points</span><span class="p">:</span>
+
+            <span class="c1"># 'get_step' decides direction and how
+</span>            <span class="c1"># far to go in that direction
+</span>            <span class="n">x_step</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">get_step</span><span class="p">()</span>
+            <span class="n">y_step</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">get_step</span><span class="p">()</span>
+
+            <span class="c1"># Do not append if x and y step = 0
+</span>            <span class="k">if</span> <span class="n">x_step</span> <span class="ow">and</span> <span class="n">y_step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># Calculate new step
+</span>            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">x_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_step</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">y_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_step</span>
+
+            <span class="c1"># Add points to list
+</span>            <span class="bp">self</span><span class="p">.</span><span class="n">x_values</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">y_values</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+<p>&nbsp;</p>
+
+<h2 id="plotting-the-random-walk">Plotting the random walk</h2>
+<p>To plot the random walk, make sure to import pyplot from matplotlib.
+Import the class randomwalk from the file randomwalk.py.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="kn">from</span> <span class="nn">randomwalk</span> <span class="kn">import</span> <span class="n">RandomWalk</span>
+</code></pre></div></div>
+<p>The interesting part of this project is exploring the various plots that the random walk program generates. That is why all the code for the visualization is inside a while loop. Anytime the user closes a plot, the program will ask if they would like to generate a new one.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Keep making new walk visualizations as long as the user wants to.
+</span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="c1"># Create an instance of RandomWalk class.
+</span>    <span class="n">rw</span> <span class="o">=</span> <span class="n">RandomWalk</span><span class="p">()</span>
+    <span class="n">rw</span><span class="p">.</span><span class="n">fill_walk</span><span class="p">()</span>
+
+    <span class="c1"># Set up plot
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'classic'</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>  <span class="c1"># figsize arg sets size of figure using tuple.
+</span>    <span class="n">point_numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">rw</span><span class="p">.</span><span class="n">num_points</span><span class="p">)</span>  <span class="c1"># rw.num_points used as num_points can be changed, used for cmap.
+</span>    <span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rw</span><span class="p">.</span><span class="n">x_values</span><span class="p">,</span> <span class="n">rw</span><span class="p">.</span><span class="n">y_values</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">point_numbers</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="p">.</span><span class="n">cm</span><span class="p">.</span><span class="n">Blues</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">'None'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+    <span class="c1"># Emphasize first and last points of random walk.
+</span>    <span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">'green'</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">'None'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rw</span><span class="p">.</span><span class="n">x_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rw</span><span class="p">.</span><span class="n">y_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">'None'</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="c1"># Customize labels.
+</span>    <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Random Walk'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="c1"># Removing axes
+</span>    <span class="n">ax</span><span class="p">.</span><span class="n">get_xaxis</span><span class="p">().</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">get_yaxis</span><span class="p">().</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="n">run_again</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'Make another random walk? (Y/N)?: '</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">run_again</span><span class="p">.</span><span class="n">title</span><span class="p">()</span> <span class="o">==</span> <span class="s">'N'</span><span class="p">:</span>
+        <span class="k">break</span>
+</code></pre></div></div>
+<p><img src="/img/posts/random-walk/rwFigure_1.png" alt="RW" />
+<strong>Figure 1</strong>: A simulated random walk with 10,000 points</p>
+
+<p><a href="https://github.com/LarryS19/Random-Walk-Project">Git Hub Repository</a></p>
+:ET

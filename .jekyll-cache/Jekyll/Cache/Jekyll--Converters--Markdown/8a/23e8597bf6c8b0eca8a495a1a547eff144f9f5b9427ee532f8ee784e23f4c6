@@ -1,8 +1,0 @@
-I"®<h2 id="background">Background</h2>
-<p>A random walk is a path created by a series of choices, each of which is left entirely to chance. Random walks have practical applications in several areas of academia such as physics and economics.</p>
-
-<p>In this case, each step will consist of a randomly chosen set of coordinates (each between 0 and Â±4). The program can produce simple to complex random walks by changing the number of points (the default number of points is 10,000). 
-The visualization below represents a random walk. The beginning starts at the green dot, and the path is displayed by the gradient.</p>
-
-<p><img src="img/posts/rwFigure_1.png" alt="Random Walk Plot" /></p>
-:ET
