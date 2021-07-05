@@ -1,17 +1,17 @@
-I"Å3<h2 id="background">Background</h2>
+I"Ä3<h2 id="background">Background</h2>
 <p>A random walk is a path created by a series of choices, each of which is left entirely to chance. Random walks have practical applications in several areas of academia such as physics and economics.</p>
 
 <p>For this case, each step will consist of a randomly chosen set of coordinates (each between -4 and 4). This python program can produce simple to complex random walks by changing the number of points (the default number of points is 10,000). 
 Figure 1 below represents a random walk with the default number of points. The beginning starts at the green dot, and the gradient represents the path (from light to dark).</p>
 <p>&nbsp;</p>
 
-<h2 id="setting-up-the-random-walk-class">Setting up the random walk class</h2>
+<h2 id="setting-up-the-random-walk-class">Setting Up the Random Walk Class</h2>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># First, from the random module import choice
 </span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
 </code></pre></div></div>
 <p>&nbsp;</p>
 
-<h2 id="creating-the-random-walk-class">Creating the random walk class</h2>
+<h2 id="creating-the-random-walk-class">Creating the Random Walk Class</h2>
 <p>A class was perfect to use in this case since the code consisted of several parts, each of which had itsâ€™ own task. I created a set of empty lists, one for the x values and one for the y values.</p>
 
 <p>The get_step function is the main section of this class. First, the program randomly selects the direction and distance of a point using the choice method. I calculated the step by multiplying the direction and distance, meaning the possibilities for each step are [-4, 4].</p>
@@ -62,7 +62,7 @@ Figure 1 below represents a random walk with the default number of points. The b
 </code></pre></div></div>
 <p>&nbsp;</p>
 
-<h2 id="plotting-the-random-walk">Plotting the random walk</h2>
+<h2 id="plotting-the-random-walk">Plotting the Random Walk</h2>
 <p>To plot the random walk, make sure to import pyplot from matplotlib.
 Import the class randomwalk from the file randomwalk.py.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -100,5 +100,5 @@ Import the class randomwalk from the file randomwalk.py.</p>
 <p><img src="/img/posts/random-walk/rwFigure_1.png" alt="RW" />
 <strong>Figure 1</strong>: A simulated random walk with 10,000 points</p>
 
-<p><a href="https://github.com/LarryS19/Random-Walk-Project">Git Hub Repository</a></p>
+<p><a href="https://github.com/LarryS19/Random-Walk-Project">GitHub Repository</a></p>
 :ET

@@ -12,14 +12,14 @@ For this case, each step will consist of a randomly chosen set of coordinates (e
 Figure 1 below represents a random walk with the default number of points. The beginning starts at the green dot, and the gradient represents the path (from light to dark).
 <p>&nbsp;</p>
 
-## Setting up the random walk class
+## Setting Up the Random Walk Class
 ````python
 # First, from the random module import choice
 from random import choice
 ````
 <p>&nbsp;</p>
 
-## Creating the random walk class
+## Creating the Random Walk Class
 A class was perfect to use in this case since the code consisted of several parts, each of which had its' own task. I created a set of empty lists, one for the x values and one for the y values.
 
 The get_step function is the main section of this class. First, the program randomly selects the direction and distance of a point using the choice method. I calculated the step by multiplying the direction and distance, meaning the possibilities for each step are [-4, 4]. 
@@ -71,7 +71,7 @@ class RandomWalk:
 ````
 <p>&nbsp;</p>
 
-## Plotting the random walk
+## Plotting the Random Walk
 To plot the random walk, make sure to import pyplot from matplotlib.
 Import the class randomwalk from the file randomwalk.py.
 ````python

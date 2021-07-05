@@ -1,0 +1,87 @@
+I"�4<h2 id="quick-overview">Quick Overview</h2>
+<p>For this project, I decided to delve into the climatic data gathered by weather stations inside two neighboring national parks. I thought it’d be interesting to see how different the weather would be between two parks that are around 100 miles apart.</p>
+
+<p>I analyzed the data stored for the year 2018. The data was saved in the CSV format and consisted of high and low temperatures. I then used Matplotlib to generate a plot to display the differences between both parks.</p>
+
+<p>As a result, the plot (<strong>Figure 1</strong>) showed drastic climatic differences. Death Valley data is shown as transparent, while Grand Canyon is opaque.
+Both parks displayed a high range of temperatures during the day, but overall the grand canyon presented much lower temperatures. Additionally, the plot displayed an interesting pattern that occurred throughout the year. The Grand Canyon highs were the approximate lows for Death Valley.</p>
+
+<p>But why such a shift in temperatures between the parks that are only 100 miles away? My hypothesis is the difference in altitudes. The Grand Canyon sits around 7000” in elevation, while Death Valley is at a whopping -200” below sea level.</p>
+
+<p><img src="/img/posts/National-Park-Temps/GCNPvsDVNP.png" alt="GCVSDV" />
+<strong>Figure 1</strong>: A plot showing the highs and lows of the two data sets. Death Valley is shown as transparent.</p>
+<p>&nbsp;</p>
+
+<h2 id="general-setup">General Setup</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</code></pre></div></div>
+<p>Make sure to import the necessary modules and packages. You can find the files worked with for this project within the projects <a href="" target="_blank">GitHub repository</a>.
+If you are curious to explore weather data from other locations, you can visit the official <a href="https://www.ncdc.noaa.gov/cdo-web/search" target="_blank">NOAA website.</a></p>
+
+<h2 id="creating-a-function-to-analyze-and-store-weather-data">Creating a Function to Analyze and Store Weather Data</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">store_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="s">"""Retrieves relevant data from CSV file for plotting"""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">header_row</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+        <span class="n">indexes</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Create a dictionary for the indexes of each column_header.
+</span>        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">column_header</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">header_row</span><span class="p">):</span>
+            <span class="n">indexes</span><span class="p">[</span><span class="n">column_header</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+        
+        <span class="c1"># Temporarily store each date, high and low temp in a variable.
+</span>        <span class="c1"># Then permanently store it in its' corresponding list.
+</span>        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">indexes</span><span class="p">[</span><span class="s">'DATE'</span><span class="p">]],</span> <span class="s">'%Y-%m-%d'</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">high</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">indexes</span><span class="p">[</span><span class="s">'TMAX'</span><span class="p">]])</span>
+                <span class="n">low</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">indexes</span><span class="p">[</span><span class="s">'TMIN'</span><span class="p">]])</span>
+            <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Missing data for: </span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s"> for the following file:"</span>
+                      <span class="sa">f</span><span class="s">" </span><span class="se">\n</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">dates</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+                <span class="n">highs</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">high</span><span class="p">)</span>
+                <span class="n">lows</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">low</span><span class="p">)</span>
+</code></pre></div></div>
+<p>I extracted the header row and placed it within its’ variable. 
+If it’s required to analyze several data sets, it is highly recommended to use an empty dictionary to store the correct indexes for each column header of each data set. This way, one will not have to hardcode each corresponding index every single time.</p>
+
+<p>Within a for loop, the function retrieves each date, high and low temperature from each line (each line represents a day), and stores it in a temporary variable. The function then permanently appends each value to its’ corresponding list (the lists are defined before the function is called). To prevent any crashes, I used Try and Except to detect missing data and inform the user of the specific date.</p>
+
+<h2 id="plotting-data">Plotting Data</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Initiate plot
+</span><span class="n">plt</span><span class="p">.</span><span class="n">style</span><span class="p">.</span><span class="n">use</span><span class="p">(</span><span class="s">'seaborn'</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Plot Grand Canyon NP - 2018
+</span><span class="n">dates</span><span class="p">,</span> <span class="n">highs</span><span class="p">,</span> <span class="n">lows</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">store_data</span><span class="p">(</span><span class="s">'/Users/larrysaavedra/Desktop/PCC_projects/chapter_16/data/grand_canyon_np_2018_full.csv'</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">highs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">lows</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">highs</span><span class="p">,</span> <span class="n">lows</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1"># Plot Death Valley NP - 2018
+</span><span class="n">dates</span><span class="p">,</span> <span class="n">highs</span><span class="p">,</span> <span class="n">lows</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="n">store_data</span><span class="p">(</span><span class="s">'/Users/larrysaavedra/Desktop/PCC_projects/chapter_16/data/death_valley_2018_simple.csv'</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">highs</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">lows</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">highs</span><span class="p">,</span> <span class="n">lows</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'blue'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># Formatting overall plot
+</span><span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"Daily High &amp; Low Temperatures </span><span class="se">\n</span><span class="s">"</span>
+             <span class="s">"Grand Canyon NP &amp; Death Valley NP - 2018"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s">''</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s">'Temperature (F°)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s">'both'</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s">'major'</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+:ET
