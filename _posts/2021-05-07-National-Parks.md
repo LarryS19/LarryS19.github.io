@@ -70,7 +70,7 @@ fig, ax = plt.subplots()
 
 # Plot Grand Canyon NP - 2018
 dates, highs, lows = [], [], []
-store_data('/Users/larrysaavedra/Desktop/PCC_projects/chapter_16/data/grand_canyon_np_2018_full.csv')
+store_data('data/grand_canyon_np_2018_full.csv') # path where your CSV file is located
 
 ax.plot(dates, highs, c='red', linewidth=0.9, alpha=0.8)
 ax.plot(dates, lows, c='blue', linewidth=0.9, alpha=0.8)
@@ -78,7 +78,7 @@ ax.fill_between(dates, highs, lows, facecolor='blue', alpha=0.2)
 
 # Plot Death Valley NP - 2018
 dates, highs, lows = [], [], []
-store_data('/Users/larrysaavedra/Desktop/PCC_projects/chapter_16/data/death_valley_2018_simple.csv')
+store_data('data/death_valley_2018_simple.csv')
 
 ax.plot(dates, highs, c='red', linewidth=0.9, alpha=0.4)
 ax.plot(dates, lows, c='blue', linewidth=0.9, alpha=0.4)
