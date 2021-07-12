@@ -1,0 +1,4 @@
+I"ç<h2 id="quick-overview">Quick Overview</h2>
+<p>This was a fun project to work on since this was one of my first interactive visualizations. 
+A simple but very informative scatter plot (<strong>Figure 1</strong>) was the result of the code that is shown below. The plot allows you to zoom in/out and displays the magnitudes and locations for all earthquakes. Each circle represents an earthquake, varying in size and color. The larger and the closer to red, the higher the magnitude.</p>
+:ET
