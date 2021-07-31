@@ -1,0 +1,17 @@
+I"g<p>Safe drinking water is a basic human right, whether used for drinking, food production, or basic hygiene. Although 70% of the earth’s surface is covered in water, there are still countries and communities that lack easy access to safe drinking water. Unsafe drinking water can be contaminated with hazardous chemical and animal waste, and dangerous amounts of naturally occurring substances.</p>
+
+<p>Untreated water can pose a health risk, and cause the distribution of infectious diseases or even death. It is to the advantage of a country to provide access to safe water, as it has shown to positively impact economic growth.</p>
+
+<p>This data set analyzes several water quality properties to determine the potability of water. For this case, I will be conducting exploratory data analysis on this dataset and learn about what defines safe drinking water.</p>
+
+<h1 id="water-quality-metrics">Water Quality Metrics</h1>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Import all necessary Libraries
+</span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</code></pre></div></div>
+
+:ET
