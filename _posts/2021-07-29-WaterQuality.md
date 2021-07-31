@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exploratory Data Analysis on a Water Quality Dataset"
+title: "Exploratory Data Analysis of a Water Quality Dataset"
 subtitle: ""
 background: '/img/posts/Water_quality/clean-21479_640.jpeg'
 ---
