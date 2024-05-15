@@ -1,0 +1,611 @@
+I"[�<h1 id="background">Background</h1>
+<p>Apache Airflow is an open-source platform which is used for orchestrating and automating workflows and data pipelines. It helps data professionals to programmatically author, schedule, monitor and manage workflows. A package which is perfect for tasks such as extracting, transforming and loading data into dashboards.</p>
+
+<p>In this example we will be using a transnational retail   <a href="https://github.com/LarryS19/airflow_project_retail/blob/main/retail.py" target="_blank">dataset</a> from a UK-based e-commerce site. The data will be extracted from a csv file and loaded into a google cloud storage, will be passed through several data quality checks, shaped with DBT and finally loaded into a dashboard using Metabase.</p>
+
+<p><strong>Note: This will not be a tutorial but rather a very quick summary of the process due to the project’s very complex nature. If you have any questions, feel free to contact me!</strong></p>
+
+<h1 id="highlights">Highlights</h1>
+
+<p>🌟 Introduction and project overview<br />
+📊 Ingesting data from a CSV file into Google Cloud Storage<br />
+✅ Running data quality checks with SODA<br />
+🔄 Shaping the raw data and modeling with DBT and Airflow<br />
+🚀 Integrating DBT with Airflow using Cosmos<br />
+✅ Running data quality checks on transformed data<br />
+📈 Running DBT models for analytics<br />
+✅ Final data quality checks<br />
+📊 Building a dashboard with Metabase</p>
+
+<h1 id="dataset">Dataset</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>InvoiceNo</td>
+      <td>Unique invoice number assigned to each transaction. If it starts with ‘c’, it indicates a cancellation.</td>
+    </tr>
+    <tr>
+      <td>StockCode</td>
+      <td>Unique code assigned to each product.</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>Name of the product.</td>
+    </tr>
+    <tr>
+      <td>Quantity</td>
+      <td>Number of items purchased in each transaction.</td>
+    </tr>
+    <tr>
+      <td>InvoiceDate</td>
+      <td>Date and time of each transaction.</td>
+    </tr>
+    <tr>
+      <td>UnitPrice</td>
+      <td>Price per unit of the product.</td>
+    </tr>
+    <tr>
+      <td>CustomerID</td>
+      <td>Unique customer number assigned to each customer.</td>
+    </tr>
+    <tr>
+      <td>Country</td>
+      <td>Name of the country where each customer resides.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="data-pipeline-diagram">Data Pipeline Diagram</h1>
+
+<p><img src="/img/posts/Data_Engineering_Apache/flow-diagram.jpg" alt="img" /></p>
+
+<h1 id="data-model">Data Model</h1>
+<p><img src="/img/posts/Data_Engineering_Apache/dbt.jpg" alt="img" /></p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+<ul>
+  <li>Docker</li>
+  <li>Astro CLI</li>
+  <li>Soda</li>
+  <li>Google Cloud Storage Account</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Import all necessary Libraries
+</span><span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">airflow.providers.google.cloud.transfers.local_to_gcs</span> <span class="kn">import</span> <span class="n">LocalFilesystemToGCSOperator</span>
+<span class="kn">from</span> <span class="nn">airflow.providers.google.cloud.operators.bigquery</span> <span class="kn">import</span> <span class="n">BigQueryCreateEmptyDatasetOperator</span>
+<span class="kn">from</span> <span class="nn">astro</span> <span class="kn">import</span> <span class="n">sql</span> <span class="k">as</span> <span class="n">aql</span>
+<span class="kn">from</span> <span class="nn">astro.files</span> <span class="kn">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">airflow.models.baseoperator</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">from</span> <span class="nn">astro.sql.table</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Metadata</span>
+<span class="kn">from</span> <span class="nn">astro.constants</span> <span class="kn">import</span> <span class="n">FileType</span>
+<span class="kn">from</span> <span class="nn">include.dbt.cosmos_config</span> <span class="kn">import</span> <span class="n">DBT_PROJECT_CONFIG</span><span class="p">,</span> <span class="n">DBT_CONFIG</span>
+<span class="kn">from</span> <span class="nn">cosmos.airflow.task_group</span> <span class="kn">import</span> <span class="n">DbtTaskGroup</span>
+<span class="kn">from</span> <span class="nn">cosmos.constants</span> <span class="kn">import</span> <span class="n">LoadMode</span>
+<span class="kn">from</span> <span class="nn">cosmos.config</span> <span class="kn">import</span> <span class="n">ProjectConfig</span><span class="p">,</span> <span class="n">RenderConfig</span>
+</code></pre></div></div>
+<p>The core concept of Airflow is using DAGs (Directed Acyclic Graph), which in essence is a collection of tasks organized with dependencies and built with detailed relationships on how they should run. It’s a perfect tool to automate, organize, and monitor complex data pipelines.</p>
+
+<p>The first step in the data pipeline is to download the CSV from the Kaggle site and store it in a Google Cloud Storage (GCS) bucket. After storing it in a bucket, a service account is created with a unique name. The DAG can only access the GCS account by providing it with the <strong>service_account.json</strong> file.</p>
+
+<h3 id="declaring-the-dag-and-uploading-csv-to-a-google-cloud-storage-bucket">Declaring the DAG and Uploading CSV to a Google Cloud Storage Bucket</h3>
+<p>There are three ways to declare a DAG, my preference is by using the <strong>@dag</strong> decorator. In this case the DAG is named <strong>retail()</strong> and has one task, to run <strong>upload_csv_to_gcs</strong> which uses the <strong>*LocalFilesystemToGCSOperator()</strong> operator. An Operator is simply a predefined task or a python function. Most operators have the option to declare several parameters for customization, the same as regular python functions! It is necessary to call retail() line at the end, otherwise it will not run the DAG.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">airflow.providers.google.cloud.transfers.local_to_gcs</span> <span class="kn">import</span> <span class="n">LocalFilesystemToGCSOperator</span>
+
+<span class="o">@</span><span class="n">dag</span><span class="p">(</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">schedule</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">catchup</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s">'retail'</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">retail</span><span class="p">():</span>
+    <span class="n">upload_csv_to_gcs</span> <span class="o">=</span> <span class="n">LocalFilesystemToGCSOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s">'upload_csv_to_gcs'</span><span class="p">,</span>
+        <span class="n">src</span> <span class="o">=</span> <span class="s">'/usr/local/airflow/include/dataset/Online_Retail.csv'</span><span class="p">,</span>
+        <span class="n">dst</span> <span class="o">=</span> <span class="s">'raw/online_retail.csv'</span><span class="p">,</span>
+        <span class="n">bucket</span><span class="o">=</span><span class="s">'larrysaavedra_online_retail'</span><span class="p">,</span>
+        <span class="n">gcp_conn_id</span> <span class="o">=</span> <span class="s">'gcp'</span><span class="p">,</span>
+        <span class="n">mime_type</span><span class="o">=</span><span class="s">'text/csv'</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">retail</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>At any point after adding a task to the DAG, one should be able to see the DAG visually represented within the Airflow UI. Another benefit of using Airflow!</p>
+
+<h3 id="creating-the-schema-and-loading-the-csv-data-into-bigquery">Creating the Schema and Loading the CSV Data into BigQuery</h3>
+<p>Next an empty Dataset (schema) named <strong>retail</strong> is created in BigQuery in order to upload the data from the bucket named <strong>larrysaavedra_online_retail</strong> into BigQuery. Again the task <strong>create_retail_dataset</strong> uses the operator <strong>BigQueryCreateEmptyDatasetOperator</strong> to do that.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">airflow.providers.google.cloud.operators.bigquery</span> <span class="kn">import</span> <span class="n">BigQueryCreateEmptyDatasetOperator</span>
+
+<span class="n">create_retail_dataset</span> <span class="o">=</span> <span class="n">BigQueryCreateEmptyDatasetOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s">'create_retail_dataset'</span><span class="p">,</span>
+        <span class="n">dataset_id</span><span class="o">=</span><span class="s">'retail'</span><span class="p">,</span>
+        <span class="n">gcp_conn_id</span><span class="o">=</span><span class="s">'gcp'</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>At this point of time we only have a schema created but no tables. The next task <strong>gcs_to_raw</strong> below does just that, it loads the CSV file into a table called <strong>raw_invoices</strong>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">astro</span> <span class="kn">import</span> <span class="n">sql</span> <span class="k">as</span> <span class="n">aql</span>
+<span class="kn">from</span> <span class="nn">astro.files</span> <span class="kn">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">astro.sql.table</span> <span class="kn">import</span> <span class="n">Table</span><span class="p">,</span> <span class="n">Metadata</span>
+<span class="kn">from</span> <span class="nn">astro.constants</span> <span class="kn">import</span> <span class="n">FileType</span>
+
+<span class="n">gcs_to_raw</span> <span class="o">=</span> <span class="n">aql</span><span class="p">.</span><span class="n">load_file</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s">'gcs_to_raw'</span><span class="p">,</span>
+        <span class="n">input_file</span><span class="o">=</span><span class="n">File</span><span class="p">(</span>
+            <span class="s">'gs://larrysaavedra_online_retail/raw/online_retail.csv'</span><span class="p">,</span>
+            <span class="n">conn_id</span><span class="o">=</span><span class="s">'gcp'</span><span class="p">,</span>
+            <span class="n">filetype</span><span class="o">=</span><span class="n">FileType</span><span class="p">.</span><span class="n">CSV</span><span class="p">,</span>
+        <span class="p">),</span>
+        <span class="n">output_table</span><span class="o">=</span><span class="n">Table</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s">'raw_invoices'</span><span class="p">,</span>
+            <span class="n">conn_id</span><span class="o">=</span><span class="s">'gcp'</span><span class="p">,</span>
+            <span class="n">metadata</span><span class="o">=</span><span class="n">Metadata</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="s">'retail'</span><span class="p">)</span>
+        <span class="p">),</span>
+        <span class="n">use_native_support</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+<p>The data is officially now uploaded into the warehouse!</p>
+
+<h1 id="integrating-the-soda-cli-with-apache-airflow">Integrating the Soda CLI with Apache Airflow</h1>
+<p>Soda is a data quality testing tool that can be integrated with several services, in this example we will be using it throughout the data pipeline right after transforming the data. Here are a couple qualities that Soda can test for:</p>
+<ul>
+  <li>Are there any missing values?</li>
+  <li>Are there any unexpected duplicate values?</li>
+  <li>Did something go wrong during the transformation of the data?</li>
+  <li>Are all data values valid (correct data type)?</li>
+  <li>How fresh is the data?</li>
+  <li>Any inconsistent values disrupting anything downstream?</li>
+</ul>
+
+<p>If, after a scan, Soda detects unexpected, invalid, or missing data, it will return a scan result that will help the user investigate and debug for quality issues.</p>
+
+<p>There are a couple things that need to be done before Soda can be used with Airflow. First, one must make sure to have the Soda Core package under the requirements.txt file. Second, create a <strong>configuration.yml</strong> file which is used to provide details for Soda to connect with the data source (in this case BigQuery). Third, create a Soda account and create an API key which is then copied into the <strong>configuration.yml</strong> file.</p>
+
+<h3 id="creating-the-first-soda-scan-test">Creating the First Soda Scan Test</h3>
+
+<p>We can finally focus on creating the first scan test for the raw_invoices table. Below is the yml file that will be used by Soda. In this example, it will check that there are no missing columns, and that each respective column has the correct data type. For example, <strong>InvoiceNo</strong> is a column that should be in the table and have only the string data type.</p>
+
+<pre><code class="language-Python"># Stored under include/soda/checks/sources/raw_invoices.yml
+
+checks for raw_invoices:
+  - schema:
+      fail:
+        when required column missing: [InvoiceNo, StockCode, Quantity, InvoiceDate, UnitPrice, CustomerID, Country]
+        when wrong column type:
+          InvoiceNo: string
+          StockCode: string
+          Quantity: integer
+          InvoiceDate: string
+          UnitPrice: float64
+          CustomerID: float64
+          Country: string
+</code></pre>
+<p>This will only be one of a few yml scan files we will create, therefore it’s to our benefit to create an external function and a virtual environment for Soda to run the scan files when needed throughout the pipeline.</p>
+
+<p>Below is the function that will run the scan files, all we have to do is replace the <strong>checks_subpath</strong> parameter with the folder path where the scan yml file is located and give it a custom name under the parameter <strong>scan_name</strong>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># include/soda/check_function.py
+</span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">scan_name</span><span class="p">,</span> <span class="n">checks_subpath</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">data_source</span><span class="o">=</span><span class="s">'retail'</span><span class="p">,</span> <span class="n">project_root</span><span class="o">=</span><span class="s">'include'</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">soda.scan</span> <span class="kn">import</span> <span class="n">Scan</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="s">'Running Soda Scan ...'</span><span class="p">)</span>
+    <span class="n">config_file</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">project_root</span><span class="si">}</span><span class="s">/soda/configuration.yml'</span>
+    <span class="n">checks_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">project_root</span><span class="si">}</span><span class="s">/soda/checks'</span>
+
+    <span class="k">if</span> <span class="n">checks_subpath</span><span class="p">:</span>
+        <span class="n">checks_path</span> <span class="o">+=</span> <span class="sa">f</span><span class="s">'/</span><span class="si">{</span><span class="n">checks_subpath</span><span class="si">}</span><span class="s">'</span>
+
+    <span class="n">scan</span> <span class="o">=</span> <span class="n">Scan</span><span class="p">()</span>
+    <span class="n">scan</span><span class="p">.</span><span class="n">set_verbose</span><span class="p">()</span>
+    <span class="n">scan</span><span class="p">.</span><span class="n">add_configuration_yaml_file</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+    <span class="n">scan</span><span class="p">.</span><span class="n">set_data_source_name</span><span class="p">(</span><span class="n">data_source</span><span class="p">)</span>
+    <span class="n">scan</span><span class="p">.</span><span class="n">add_sodacl_yaml_files</span><span class="p">(</span><span class="n">checks_path</span><span class="p">)</span>
+    <span class="n">scan</span><span class="p">.</span><span class="n">set_scan_definition_name</span><span class="p">(</span><span class="n">scan_name</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">scan</span><span class="p">.</span><span class="n">execute</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">scan</span><span class="p">.</span><span class="n">get_logs_text</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">'Soda Scan failed'</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></div>
+
+<p>After creating a virtual environment for Soda, we can officially add a new task to our DAG using ExternalPython which will use the virtual environment with all the Soda dependencies pre-installed. This makes the script run much faster, rather than using VirtualPython where dependencies have to be installed during each run.</p>
+
+<p>We call this task <strong>check_load</strong> all it does is run the raw_invoices scan which is stored under a sub folder called <strong>sources</strong>. In order to run this scan, we simply have to call the <strong>check_load()</strong> function as declared below.</p>
+
+<pre><code class="language-Python">@task.external_python(python='/usr/local/airflow/soda_venv/bin/python')
+    def check_load(scan_name='check_load', checks_subpath='sources'):
+        # Recall this is the function check_function we created above!
+        from include.soda.checks.sources.check_function import check
+
+        return check(scan_name, checks_subpath)
+</code></pre>
+
+<p>The first data quality check is in place, and we can finally move to our first transformation of our raw data!</p>
+
+<h1 id="conducting-the-first-data-transformation-with-dbt-and-cosmos">Conducting the First Data Transformation with DBT and Cosmos</h1>
+<p>DBT (Data Build Tool) is an open-source tool that streamlines the process of transforming and managing data, a pretty neat tool for modern data teams. Cosmos in the other hand is probably one the best ways to integrate dbt and airflow. Using Cosmos helps you visualize what is occurring inside dbt when it’s integrated with airflow. Additionally you can transform these DBT projects into Tasks Groups making it easier to manage code and debug.</p>
+
+<p>Once again before anything can be done with DBT, Cosmos needs to be properly installed through the requirements.txt file, a virtual environment created within the Dockerfile, linked up with the airflow environment, and finally create a new table called retail.country within BigQuery using <a href="https://gist.github.com/LarryS19/4199173f1f3c756cca7f5fa7522913c0" target="_blank">the following query</a>. At this point two tables should exist in BigQuery, raw_invoices and country.</p>
+
+<h3 id="creating-the-dbt-models">Creating the DBT models</h3>
+<p>First we need to tell DBT what data it needs to look for to transform.</p>
+
+<pre><code class="language-Python"># The following information should be in a yml file named sources.yml under the following path include/dbt/models/
+version: 2
+
+sources:
+  - name: retail
+    database: airtube-390719 # Put the project id!
+
+    tables:
+      - name: raw_invoices
+			- name: country
+</code></pre>
+
+<p>The following code snippets are the actual models that DBT will be making during the flow. Models are simply the representation of a table or a view of a data model. DBT accepts SQL statements to conduct transformations and create tables.</p>
+
+<p>Recall from the ERD at the beginning of this post that we should have 4 tables.
+All these models should be under the path <strong>include/dbt/models/transform</strong> in the airflow project.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- dim_customer.sql</span>
+
+<span class="c1">-- Create the dimension table</span>
+<span class="k">WITH</span> <span class="n">customer_cte</span> <span class="k">AS</span> <span class="p">(</span>
+	<span class="k">SELECT</span> <span class="k">DISTINCT</span>
+	    <span class="err">{{</span> <span class="n">dbt_utils</span><span class="p">.</span><span class="n">generate_surrogate_key</span><span class="p">([</span><span class="s1">'CustomerID'</span><span class="p">,</span> <span class="s1">'Country'</span><span class="p">])</span> <span class="err">}}</span> <span class="k">as</span> <span class="n">customer_id</span><span class="p">,</span>
+	    <span class="n">Country</span> <span class="k">AS</span> <span class="n">country</span>
+	<span class="k">FROM</span> <span class="err">{{</span> <span class="k">source</span><span class="p">(</span><span class="s1">'retail'</span><span class="p">,</span> <span class="s1">'raw_invoices'</span><span class="p">)</span> <span class="err">}}</span>
+	<span class="k">WHERE</span> <span class="n">CustomerID</span> <span class="k">IS</span> <span class="k">NOT</span> <span class="k">NULL</span>
+<span class="p">)</span>
+<span class="k">SELECT</span>
+    <span class="n">t</span><span class="p">.</span><span class="o">*</span><span class="p">,</span>
+	<span class="n">cm</span><span class="p">.</span><span class="n">iso</span>
+<span class="k">FROM</span> <span class="n">customer_cte</span> <span class="n">t</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="err">{{</span> <span class="k">source</span><span class="p">(</span><span class="s1">'retail'</span><span class="p">,</span> <span class="s1">'country'</span><span class="p">)</span> <span class="err">}}</span> <span class="n">cm</span> <span class="k">ON</span> <span class="n">t</span><span class="p">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">cm</span><span class="p">.</span><span class="n">nicename</span>
+</code></pre></div></div>
+
+<pre><code class="language-SQL">-- dim_datetime.sql
+
+-- Create a CTE to extract date and time components
+WITH datetime_cte AS (  
+  SELECT DISTINCT
+    InvoiceDate AS datetime_id,
+    CASE
+      WHEN LENGTH(InvoiceDate) = 16 THEN
+        -- Date format: "DD/MM/YYYY HH:MM"
+        PARSE_DATETIME('%m/%d/%Y %H:%M', InvoiceDate)
+      WHEN LENGTH(InvoiceDate) &lt;= 14 THEN
+        -- Date format: "MM/DD/YY HH:MM"
+        PARSE_DATETIME('%m/%d/%y %H:%M', InvoiceDate)
+      ELSE
+        NULL
+    END AS date_part,
+  FROM {{ source('retail', 'raw_invoices') }}
+  WHERE InvoiceDate IS NOT NULL
+)
+SELECT
+  datetime_id,
+  date_part as datetime,
+  EXTRACT(YEAR FROM date_part) AS year,
+  EXTRACT(MONTH FROM date_part) AS month,
+  EXTRACT(DAY FROM date_part) AS day,
+  EXTRACT(HOUR FROM date_part) AS hour,
+  EXTRACT(MINUTE FROM date_part) AS minute,
+  EXTRACT(DAYOFWEEK FROM date_part) AS weekday
+FROM datetime_cte
+</code></pre>
+
+<pre><code class="language-SQL">-- dim_product.sql
+-- StockCode isn't unique, a product with the same id can have different and prices
+-- Create the dimension table
+SELECT DISTINCT
+    {{ dbt_utils.generate_surrogate_key(['StockCode', 'Description', 'UnitPrice']) }} as product_id,
+		StockCode AS stock_code,
+    Description AS description,
+    UnitPrice AS price
+FROM {{ source('retail', 'raw_invoices') }}
+WHERE StockCode IS NOT NULL
+AND UnitPrice &gt; 0
+</code></pre>
+
+<pre><code class="language-SQL">-- fct_invoices.sql
+
+-- Create the fact table by joining the relevant keys from dimension table
+WITH fct_invoices_cte AS (
+    SELECT
+        InvoiceNo AS invoice_id,
+        InvoiceDate AS datetime_id,
+        {{ dbt_utils.generate_surrogate_key(['StockCode', 'Description', 'UnitPrice']) }} as product_id,
+        {{ dbt_utils.generate_surrogate_key(['CustomerID', 'Country']) }} as customer_id,
+        Quantity AS quantity,
+        Quantity * UnitPrice AS total
+    FROM {{ source('retail', 'raw_invoices') }}
+    WHERE Quantity &gt; 0
+)
+SELECT
+    invoice_id,
+    dt.datetime_id,
+    dp.product_id,
+    dc.customer_id,
+    quantity,
+    total
+FROM fct_invoices_cte fi
+INNER JOIN {{ ref('dim_datetime') }} dt ON fi.datetime_id = dt.datetime_id
+INNER JOIN {{ ref('dim_product') }} dp ON fi.product_id = dp.product_id
+INNER JOIN {{ ref('dim_customer') }} dc ON fi.customer_id = dc.customer_id
+</code></pre>
+
+<p>Now that we have have given DBT the exact transformations that need to be done, we can finally add it as a task within Airflow. 
+The task will additionally need a DBT_CONFIG file in order for it to run properly.</p>
+<pre><code class="language-Python">from include.dbt.cosmos_config import DBT_PROJECT_CONFIG, DBT_CONFIG
+from cosmos.airflow.task_group import DbtTaskGroup
+from cosmos.constants import LoadMode
+from cosmos.config import ProjectConfig, RenderConfig
+
+transform = DbtTaskGroup(
+        group_id='transform',
+        project_config=DBT_PROJECT_CONFIG,
+        profile_config=DBT_CONFIG,
+        render_config=RenderConfig(
+            load_method=LoadMode.DBT_LS,
+            select=['path:models/transform']
+        )
+    )
+</code></pre>
+<pre><code class="language-Python"># include/dbt/cosmos_config.py
+
+from cosmos.config import ProfileConfig, ProjectConfig
+from pathlib import Path
+
+DBT_CONFIG = ProfileConfig(
+    profile_name='retail',
+    target_name='dev',
+    profiles_yml_filepath=Path('/usr/local/airflow/include/dbt/profiles.yml')
+)
+
+DBT_PROJECT_CONFIG = ProjectConfig(
+    dbt_project_path='/usr/local/airflow/include/dbt/',
+)
+</code></pre>
+
+<p>The TaskGroup transform should now appear within the Airflow UI, and is now ready to be called when necessary!</p>
+
+<h3 id="running-data-quality-checks-on-transformed-data">Running Data Quality Checks on Transformed Data</h3>
+<p>Now at this point, one should be getting the gist of the process.
+The next step is to once again run some data quality checks using Soda.</p>
+
+<p>We can create all the following yml files below under the following path: <strong>include/soda/checks/transform</strong></p>
+
+<pre><code class="language-Python"># dim_customer.yml
+checks for dim_customer:
+  - schema:
+      fail:
+        when required column missing: 
+          [customer_id, country]
+        when wrong column type:
+          customer_id: string
+          country: string
+  - duplicate_count(customer_id) = 0:
+      name: All customers are unique
+  - missing_count(customer_id) = 0:
+      name: All customers have a key
+</code></pre>
+
+<pre><code class="language-Python"># dim_datetime.yml
+checks for dim_datetime:
+  # Check fails when product_key or english_product_name is missing, OR
+  # when the data type of those columns is other than specified
+  - schema:
+      fail:
+        when required column missing: [datetime_id, datetime]
+        when wrong column type:
+          datetime_id: string
+          datetime: datetime
+  # Check failes when weekday is not in range 0-6
+  - invalid_count(weekday) = 0:
+      name: All weekdays are in range 0-6
+      valid min: 0
+      valid max: 6
+  # Check fails when customer_id is not unique
+  - duplicate_count(datetime_id) = 0:
+      name: All datetimes are unique
+  # Check fails when any NULL values exist in the column
+  - missing_count(datetime_id) = 0:
+      name: All datetimes have a key
+</code></pre>
+
+<pre><code class="language-Python"># dim_product.yml
+checks for dim_product:
+  # Check fails when product_key or english_product_name is missing, OR
+  # when the data type of those columns is other than specified
+  - schema:
+      fail:
+        when required column missing: [product_id, description, price]
+        when wrong column type:
+          product_id: string
+          description: string
+          price: float64
+  # Check fails when customer_id is not unique
+  - duplicate_count(product_id) = 0:
+      name: All products are unique
+  # Check fails when any NULL values exist in the column
+  - missing_count(product_id) = 0:
+      name: All products have a key
+  # Check fails when any prices are negative
+  - min(price):
+      fail: when &lt; 0
+</code></pre>
+<pre><code class="language-Python"># fct_invoices.yml
+checks for fct_invoices:
+  # Check fails when invoice_id, quantity, total is missing or
+  # when the data type of those columns is other than specified
+  - schema:
+      fail:
+        when required column missing: 
+          [invoice_id, product_id, customer_id, datetime_id, quantity, total]
+        when wrong column type:
+          invoice_id: string
+          product_id: string
+          customer_id: string
+          datetime_id: string
+          quantity: int
+          total: float64
+  # Check fails when NULL values in the column
+  - missing_count(invoice_id) = 0:
+      name: All invoices have a key
+  # Check fails when the total of any invoices is negative
+  - failed rows:
+      name: All invoices have a positive total amount
+      fail query: |
+        SELECT invoice_id, total
+        FROM fct_invoices
+        WHERE total &lt; 0
+</code></pre>
+
+<p>Lets add this as a new task!</p>
+<pre><code class="language-Python">@task.external_python(python='/usr/local/airflow/soda_venv/bin/python')
+    def check_transform(scan_name='check_transform', checks_subpath='transform'):
+        from include.soda.check_function import check
+
+        return check(scan_name, checks_subpath)
+</code></pre>
+
+<h1 id="final-data-transformations-and-checks-for-the-report">Final Data Transformations and Checks for the Report</h1>
+<p>Once again we will create 3 more tables with DBT, all 3 will now have a prefix “report_”. These will be the final transformations and some additional data that will be released to the Metabase dashboard after a data quality check with SODA.</p>
+
+<p>These dbt models will be stored under the following path: <strong>include/dbt/models/report</strong>:</p>
+
+<pre><code class="language-SQL">-- report_customer_invoices.sql
+SELECT
+  c.country,
+  c.iso,
+  COUNT(fi.invoice_id) AS total_invoices,
+  SUM(fi.total) AS total_revenue
+FROM {{ ref('fct_invoices') }} fi
+JOIN {{ ref('dim_customer') }} c ON fi.customer_id = c.customer_id
+GROUP BY c.country, c.iso
+ORDER BY total_revenue DESC
+LIMIT 10
+</code></pre>
+
+<pre><code class="language-SQL">-- report_product_invoices.sql
+SELECT
+  p.product_id,
+  p.stock_code,
+  p.description,
+  SUM(fi.quantity) AS total_quantity_sold
+FROM {{ ref('fct_invoices') }} fi
+JOIN {{ ref('dim_product') }} p ON fi.product_id = p.product_id
+GROUP BY p.product_id, p.stock_code, p.description
+ORDER BY total_quantity_sold DESC
+LIMIT 10
+</code></pre>
+
+<pre><code class="language-SQL">-- report_year_invoices.sql
+SELECT
+  dt.year,
+  dt.month,
+  COUNT(DISTINCT fi.invoice_id) AS num_invoices,
+  SUM(fi.total) AS total_revenue
+FROM {{ ref('fct_invoices') }} fi
+JOIN {{ ref('dim_datetime') }} dt ON fi.datetime_id = dt.datetime_id
+GROUP BY dt.year, dt.month
+ORDER BY dt.year, dt.month
+</code></pre>
+
+<p>Add the new task to the DAG for the final transformations.</p>
+
+<pre><code class="language-Python">report = DbtTaskGroup(
+        group_id='report',
+        project_config=DBT_PROJECT_CONFIG,
+        profile_config=DBT_CONFIG,
+        render_config=RenderConfig(
+            load_method=LoadMode.DBT_LS,
+            select=['path:models/report']
+        )
+    )
+</code></pre>
+
+<p>Store the following SODA yml files under the path: <strong>include/soda/checks/report</strong></p>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># report_customer_invoices.yml</span>
+<span class="na">checks for report_customer_invoices</span><span class="pi">:</span>
+  <span class="c1"># Check fails if the country column has any missing values</span>
+  <span class="pi">-</span> <span class="s">missing_count(country) = 0</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">All customers have a country</span>
+  <span class="c1"># Check fails if the total invoices is lower or equal to 0</span>
+  <span class="pi">-</span> <span class="s">min(total_invoices)</span><span class="pi">:</span>
+      <span class="na">fail</span><span class="pi">:</span> <span class="s">when &lt;= </span><span class="m">0</span>
+</code></pre></div></div>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># report_product_invoices.yml</span>
+<span class="na">checks for report_product_invoices</span><span class="pi">:</span>
+  <span class="c1"># Check fails if the stock_code column has any missing values</span>
+  <span class="pi">-</span> <span class="s">missing_count(stock_code) = 0</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">All products have a stock code</span>
+  <span class="c1"># Check fails if the total quanity sold is lower or equal to 0</span>
+  <span class="pi">-</span> <span class="s">min(total_quantity_sold)</span><span class="pi">:</span>
+      <span class="na">fail</span><span class="pi">:</span> <span class="s">when &lt;= </span><span class="m">0</span>
+</code></pre></div></div>
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># report_year_invoices.yml</span>
+<span class="na">checks for report_year_invoices</span><span class="pi">:</span>
+  <span class="c1"># Check fails if the number of invoices for a year is negative</span>
+  <span class="pi">-</span> <span class="s">min(num_invoices)</span><span class="pi">:</span>
+      <span class="na">fail</span><span class="pi">:</span> <span class="s">when &lt; </span><span class="m">0</span>
+</code></pre></div></div>
+
+<p>Add the final task</p>
+<pre><code class="language-Python">@task.external_python(python='/usr/local/airflow/soda_venv/bin/python')
+    def check_report(scan_name='check_report', checks_subpath='report'):
+        from include.soda.check_function import check
+
+        return check(scan_name, checks_subpath)
+</code></pre>
+
+<p>And that is it! The data pipeline has been completed.
+In order to run the data pipeline in the intended order, one must use the function ‘chain’ and call all the tasks in the desired order. In essence building a dependency chain.</p>
+
+<pre><code class="language-Python">chain(
+        upload_csv_to_gcs,
+        create_retail_dataset,
+        gcs_to_raw,
+        check_load(),
+        transform,
+        check_transform(),
+        report,
+        check_report()
+    )
+
+
+</code></pre>
+<p>The Final DAG graph should look like the one <a href="/img/posts/Data_Engineering_Apache/dag_graph_detailed.jpg" target="_blank">attached</a>, the graph displays all dependencies including all grouped tasks.</p>
+
+<p>After entering the following <a href="https://gist.github.com/LarryS19/57f01be6f9ec96ef045b50c7b47d1d36">yml file</a> into your local DAG folder for the Metabase dashboard. The dashboard should appear on your local Metabase server, ready to be deployed and shared to the public. The data can be further manipulated in Metabase if needed!</p>
+
+<p><img src="/img/posts/Data_Engineering_Apache/meta_dashboard.png" alt="img" /></p>
+
+<h1 id="conclusion">Conclusion</h1>
+<p>In conclusion, this project demonstrates the power of Apache Airflow and associated tools in orchestrating complex data pipelines. By leveraging Airflow’s DAG structure, along with tools like DBT, SODA, and Metabase, we’ve successfully ingested, transformed, and visualized retail data. The integration of these tools allows for automation, monitoring, and scalability, making it an ideal solution for end-to-end data engineering projects. Through this project, we’ve not only built a functional data pipeline but also gained insights into the seamless orchestration and management of data workflows.</p>
+
+<p><a href="https://gist.github.com/LarryS19/84a4775919477dc5a47698fdf0245484" target="_blank">Github Repo - Main Py file</a></p>
+
+<p><a href="https://www.kaggle.com/datasets/tunguz/online-retail" target="_blank">Dataset</a></p>
+:ET
