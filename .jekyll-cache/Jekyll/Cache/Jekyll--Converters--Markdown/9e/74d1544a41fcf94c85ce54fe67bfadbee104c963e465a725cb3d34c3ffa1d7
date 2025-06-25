@@ -1,0 +1,628 @@
+I"\<p>This project involves performing sentiment analysis on Reddit posts to quantify and categorize emotional tones as positive, negative, or neutral across various discussion areas. By mapping these sentiments to specific topics and identifying dominant emotions, we gain crucial insights into overall community sentiment and pinpoint areas of widespread concern or positive engagement. This direct understanding of public sentiment from Reddit is vital for understanding trends, informing content strategies, and identifying key discussion drivers.
+<img src="/img/posts/Nintendo_Switch_2/nw2.png" alt="png" /></p>
+
+<h3 id="key-findings-on-user-sentiment"><strong>Key Findings on User Sentiment</strong></h3>
+
+<ul>
+  <li>
+    <p><strong>Overwhelming enthusiasm and gratitude:</strong><br />
+Most users, as expected, are very excited about the Switch 2’s launch, expressing anticipation for receiving their consoles. A recurring theme is a call for politeness and patience towards postal/delivery/customer service employees during the high-demand launch period.</p>
+  </li>
+  <li>
+    <p><strong>Hardware and Design Praises:</strong><br />
+The Switch 2’s hardware improvements seem to be a success. Users are impressed with its technical performance, some saying how impressed they are with the “butter smooth 60 FPS” and visuals. The new Pro Controller has consistently received stellar reviews for its lightweight body, long battery life, excellent sticks, and ergonomic design. Most users are impressed with the new Switch 2 built-in speakers, hailed as a significant upgrade from the previous iteration.</p>
+  </li>
+  <li>
+    <p><strong>Thriving Accessory Market:</strong><br />
+Users are curious and are actively seeking new accessories for their console, including carrying cases, bags, and even wall mounts. A strong desire for customization and protection for their new devices is seen through several posts.</p>
+  </li>
+  <li>
+    <p><strong>Game-specific Acclaim:</strong><br />
+“Mario Kart World” is an undeniable success, garnering universal acclaim for its “impressive artistic achievement” and “innovative concept.” Without a doubt, the game is poised to be a significant sales driver for the new console. Developers from indie studios are also expressing gratitude for the new platform and highlighting successful launches for their new games.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="areas-for-strategic-focus-and-improvement"><strong>Areas for Strategic Focus and Improvement</strong></h3>
+
+<ul>
+  <li>
+    <p><strong>Game Performance and Compatibility Issues:</strong><br />
+A notable number of users are expressing disappointment regarding performance for certain titles. This includes but is not limited to visual smoothness, certain games simply failing to boot up, and a general frustration of older games simply not performing well with the new console. Furthermore, some third-party accessories are no longer working with the original Switch after a software update, perhaps indicating initial signs of Nintendo slowly shifting its focus to the Switch 2.</p>
+  </li>
+  <li>
+    <p><strong>Ergonomic and Controller Issues:</strong><br />
+Some users are reporting discomfort when using the Switch 2 in handheld mode due to a lack of grip on the Joy-Cons; some are even reporting cases of the notorious stick drift. In general, there are early signs of concern about the quality of the Joy-Con controllers, some mentioning a “Cheap” feel to them.</p>
+  </li>
+  <li>
+    <p><strong>Feature Expectation vs. Reality:</strong><br />
+Some users are disappointed in the lack of new features, for example, the absence of anti-aliasing despite having the technical capability for it.</p>
+  </li>
+  <li>
+    <p><strong>Stock Availability Frustration:</strong><br />
+While most users are largely understanding, there’s an underlying frustration acquiring the new console and certain accessories due to the initial high-demand period.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="so-whats-recommended"><strong>So What’s Recommended?</strong></h3>
+
+<ol>
+  <li>
+    <p><strong>Prioritize Software Optimization and Compatibility Patches</strong><br />
+<em>Action:</em> Immediately investigate reported performance issues and game booting for key titles. Collaborate with third-party developers to ensure optimal game performance, especially for older Switch titles. Additionally, release firmware updates to restore compatibility for third-party accessories. This should signal to customers the commitment they still have to the original Switch users.</p>
+  </li>
+  <li>
+    <p><strong>Enhance Ergonomics and Quality Control</strong><br />
+<em>Action:</em> Investigate reported Joy-Con 2 ergonomic issues. Perhaps redesign future Joy-Cons and develop and promote first-party ergonomic grips/accessories. Begin conducting an analysis of the quality of Joy-Con 2 thumb stick components to address issues.</p>
+  </li>
+  <li>
+    <p><strong>Manage Feature Expectations and Communication</strong><br />
+<em>Action:</em> Clearly communicate to customers a technical roadmap for upcoming features for the Switch 2 to demonstrate ongoing improvements.</p>
+  </li>
+  <li>
+    <p><strong>Optimize Supply Chain</strong><br />
+<em>Action:</em> While it is expected that stock would be an issue for launch, strive to continue research and improvement for the supply chain to reduce stock scarcity. Find ways to mitigate scalpers.</p>
+  </li>
+</ol>
+
+<hr />
+<p>My analysis involved examining the representative documents for each identified topic. These documents are selected as the most characteristic examples within their respective clusters, providing insight into the primary discussions and thematic coherence driving each grouping. These key discussions are summarized below for each topic as of June 22, 2025.</p>
+<h3 id="topic-nintendoswitchgames"><strong>Topic (Nintendo,Switch,Games)</strong></h3>
+
+<p><strong>Good:</strong><br />
+Most posts express a positive attitude about Nintendo’s successful launch; it seems most people are impressed by the Nintendo Switch 2’s technical performance. There is significant gratitude towards Nintendo’s huge impact on the gaming industry and continued innovation. Some are interested in new game recommendations as they acquire the new console.</p>
+
+<p><strong>Bad:</strong><br />
+Most negative reactions seem to focus on game performance for certain titles. For example, “Minecraft Legends” presents issues with visual smoothness, and some games fail to boot entirely on the new console. Some users are frustrated by the lack of new features expected with new consoles. Overall, there’s a general sentiment of missing older, smooth, and reliable gaming experiences.</p>
+
+<hr />
+<h3 id="topic-gameplay-game-games"><strong>Topic (Gameplay, Game, Games)</strong></h3>
+
+<p><strong>Good:</strong><br />
+Most “good” posts are from indie game developers announcing and promoting their new games, emphasizing unique gameplay mechanics. Most of them are appreciative of the positive community feedback and successful launch of their games for the new console. Many are simply inviting players to try their demos.</p>
+
+<p><strong>Bad:</strong><br />
+No negative representative documents were found for this topic.</p>
+
+<hr />
+
+<h3 id="topic-walmart-store-stock"><strong>Topic (Walmart, Store, Stock)</strong></h3>
+
+<p><strong>Good:</strong><br />
+Most users are simply excited and anticipating their console to arrive. Some users are receiving them as gifts, and there are also giveaways on the r/gaming subreddit. A recurring theme is a call for politeness and patience towards postal/delivery/customer service employees during the high-demand launch period.</p>
+
+<p><strong>Bad:</strong><br />
+A few posts display how tough it is to find the console and certain accessories in stock.</p>
+
+<hr />
+
+<h3 id="topic-controllers-controller-buttons"><strong>Topic (Controllers, Controller, Buttons)</strong></h3>
+
+<p><strong>Good:</strong><br />
+A very popular post discusses the design of a custom-made, one-handed Joy-Con 2 adapter for those with disabilities. Users provide detailed and highly positive reviews of the Switch 2 Pro Controller. On the other hand, some posts address issues with controller docking problems and ergonomic concerns, seeking help from the community for solutions.</p>
+
+<p><strong>Bad:</strong><br />
+Some users are frustrated about the incompatibility of certain third-party accessories no longer working on the original Switch after a major software update, perhaps indicating initial signs of Nintendo slowly shifting its focus to its new console. Some users are annoyed at the Joy-Con thumb stick already feeling off and cheap.</p>
+
+<hr />
+
+<h3 id="topic-cases-case-nintendo"><strong>Topic (Cases, Case, Nintendo)</strong></h3>
+
+<p><strong>Good:</strong><br />
+Most users are curious about what accessories are available in the market for the new consoles. Some users are seeking recommendations while others share their experiences with recent purchases. Mostly new users are aiming to help others find beneficial add-ons for their new console.</p>
+
+<p><strong>Bad:</strong><br />
+No negative posts were found for this topic.</p>
+
+<hr />
+
+<h3 id="conclusion"><strong>Conclusion</strong></h3>
+
+<p>Most users are excited for the Switch 2 and its hardware improvements; many are particularly impressed with the new “Mario Kart World” release. While the console generally receives positive feedback, some users discuss performance issues, game compatibility bugs (between Switch and Switch 2), ergonomic issues, and aspects of the console’s design, actively requesting solutions or workarounds. In general, most users are happy with their purchase, understanding of the limited stock and initial hiccups, and willing to work around them. As long as the issues stated above are addressed, the user experience can be enhanced and reinforce Nintendo’s reputation for innovation and quality.</p>
+
+<hr />
+
+<h3 id="production-and-scalability-of-this-project"><strong>Production and Scalability of this Project</strong></h3>
+
+<ul>
+  <li>Create a <strong>modular pipeline</strong> to extract, clean and load the data into a dashboard. Perhaps using <strong>Airflow or Dagster</strong>.</li>
+  <li>Use <strong>Cloud infrastructure</strong> to store scripts that run on a periodic basis such as <strong>AWS Lambda or Azure Functions</strong>.</li>
+  <li>Package <strong>NLP models or components in Docker/Azure Containers</strong>.</li>
+  <li>Give stakeholders <strong>real-time access</strong> to insights using a dashboard such as <strong>PowerBI or Tableau</strong> that updates with scheduled dumps.</li>
+  <li>Since a <strong>pretrained model was used</strong>, we could potentially retrain the model and <strong>fine-tune it as more data comes in</strong>.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">praw</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">nltk</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nltk</span><span class="p">.</span><span class="n">download</span><span class="p">(</span><span class="s">'punkt_tab'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="crawl-gaming-sub-reddits-for-switch-2-discussions-since-the-release-of-the-console-using-praw">Crawl gaming sub reddits for Switch 2 discussions since the release of the console using PRAW</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Credentials for PRAW API
+</span><span class="n">user_agent</span> <span class="o">=</span> <span class="s">'Reddit Sentiment Analysis 1.0'</span>
+
+<span class="n">reddit</span> <span class="o">=</span> <span class="n">praw</span><span class="p">.</span><span class="n">Reddit</span><span class="p">(</span>
+    <span class="n">client_id</span> <span class="o">=</span> <span class="n">client_id</span><span class="p">,</span>
+    <span class="n">client_secret</span> <span class="o">=</span> <span class="n">client_secret</span><span class="p">,</span>
+    <span class="n">user_agent</span> <span class="o">=</span> <span class="n">user_agent</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span> <span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="c1"># Get current date and time
+</span><span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="c1"># Calculate the time difference
+</span><span class="n">time_difference</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="n">start_date</span>
+
+<span class="c1"># Convert to hours
+</span><span class="n">hours</span> <span class="o">=</span> <span class="n">time_difference</span><span class="p">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">headlines</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">reddit_post</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="c1"># search the following subreddits for the following keywords
+# and add the titles to the headlines set if they were created after the start date
+</span><span class="n">subreddits</span> <span class="o">=</span> <span class="p">[</span><span class="s">"NintendoSwitch2"</span><span class="p">,</span> <span class="s">"NintendoSwitch"</span><span class="p">,</span> <span class="s">"gaming"</span><span class="p">,</span> <span class="s">"nintendo"</span><span class="p">,</span> <span class="s">"Games"</span><span class="p">,</span> <span class="s">"gamernews"</span><span class="p">]</span>
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Nintendo Switch 2"</span><span class="p">,</span> <span class="s">"launch"</span><span class="p">,</span> <span class="s">"first impressions"</span><span class="p">,</span> <span class="s">"review"</span><span class="p">,</span> <span class="s">"performance"</span><span class="p">,</span> <span class="s">"hands-on"</span><span class="p">,</span> <span class="s">"graphics"</span><span class="p">,</span> <span class="s">"issues"</span><span class="p">,</span> <span class="s">"problems"</span><span class="p">,</span> <span class="s">"bugs"</span><span class="p">,</span> <span class="s">"features"</span><span class="p">,</span> <span class="s">"specs"</span><span class="p">,</span> <span class="s">"hardware"</span><span class="p">,</span> <span class="s">"software"</span><span class="p">,</span> <span class="s">"game library"</span><span class="p">,</span> <span class="s">"expectations"</span><span class="p">,</span> <span class="s">"price"</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">subreddit</span> <span class="ow">in</span> <span class="n">subreddits</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">keywords</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">reddit</span><span class="p">.</span><span class="n">subreddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">).</span><span class="n">search</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="s">'hot'</span><span class="p">,</span> <span class="n">time_filter</span><span class="o">=</span><span class="s">'month'</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">submission</span><span class="p">.</span><span class="n">created_utc</span> <span class="o">&gt;</span> <span class="n">start_date</span><span class="p">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="ow">and</span> <span class="n">submission</span><span class="p">.</span><span class="n">created_utc</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">.</span><span class="n">timestamp</span><span class="p">():</span>
+                <span class="n">headlines</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">submission</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
+                <span class="n">reddit_post</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">submission</span><span class="p">.</span><span class="n">selftext</span><span class="p">)</span>
+
+
+
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">reddit_post</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reddit_post</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="cleaning-up-posts-removing-urls-leading-spaces-and-symbols-truncating-long-strings-that-exceed-512-tokens">Cleaning up posts: removing URLS, leading spaces and symbols. Truncating long strings that exceed ~512 tokens</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="sa">r</span><span class="s">"[^a-zA-Z0-9\s.,!?:;'\"()-]"</span><span class="p">)</span>
+
+    <span class="c1"># Replace any character matched by 'pattern' with a single space.
+</span>    <span class="c1"># Then, use .strip() to remove leading/trailing whitespace.
+</span>    <span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="s">' '</span><span class="p">,</span> <span class="n">text</span><span class="p">).</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="c1"># Let's reduce multiple spaces to a single space.
+</span>    <span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s">'\s+'</span><span class="p">,</span> <span class="s">' '</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cleaned_text</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># clean up reddit post bodies and seperate paragraphs into sentences, remove urls and extra puncutations
+</span><span class="n">failed</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">reddit_post</span><span class="p">)):</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="n">reddit_post</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">clean_text</span><span class="p">(</span><span class="n">reddit_post</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="n">failed</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">continue</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">failed</span><span class="p">))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># store reddit posts into a df
+</span><span class="n">posts</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">reddit_post</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'Post'</span><span class="p">])</span>
+
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">count_tokens</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+  <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nltk</span><span class="p">.</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+  <span class="k">return</span> <span class="n">length</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">posts</span><span class="p">[</span><span class="s">'Token Count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="s">'Post'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">count_tokens</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Percentage of posts that exceed token limit for sentiment analysis: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="n">posts</span><span class="p">[</span><span class="s">'Token Count'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">512</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">posts</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Percentage of posts that exceed token limit for sentiment analysis: 0.07376058041112454
+</code></pre></div></div>
+
+<h4 id="initiate-process-of-sentiment-analysis">Initiate process of sentiment analysis</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">transformers</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="c1"># choosing sentiment analysis pipeline (Emotions)
+</span><span class="n">classifier</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">(</span><span class="s">"sentiment-analysis"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s">"SamLowe/roberta-base-go_emotions"</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Device set to use cpu
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># for each row conduct a sentiment analysis and categorize it, truncate string to max length
+</span><span class="n">posts</span><span class="p">[</span><span class="s">'Sentiment'</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="s">'Post'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">classifier</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s">'label'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Add probabilities to dataframe
+</span><span class="n">posts</span><span class="p">[</span><span class="s">'Sentiment_Prob'</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="s">'Post'</span><span class="p">].</span><span class="nb">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">classifier</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">truncation</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">512</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s">'score'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Post Count </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">posts</span><span class="p">)</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Post Count 827
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create a bar chart, counts for each sentiment
+</span><span class="n">posts</span><span class="p">[</span><span class="s">'Sentiment'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Overall Sentiment'</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">'Sentiment'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">'Count'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Axes: title={'center': 'Overall Sentiment'}, xlabel='Sentiment', ylabel='Count'&gt;
+</code></pre></div></div>
+
+<p><img src="/img/posts/Nintendo_Switch_2/nintendo_switch_sentimentanalysis_23_1.png" alt="png" /></p>
+
+<p>The most common emotions according to the sentiment analysis model are neutral, curiosity and admiration. Which seems plausible and expected during the launch period of the console. Neutral perhaps means that the console has reached expectations but not necessairly exceeded them, which brings us to the curiosity of customers. Posts that show admiration seem to mostly talk about the New Mario Kart World game and the design of the console.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># convert CleanedPost to string
+</span><span class="n">posts</span><span class="p">[</span><span class="s">'CleanedPost'</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="s">'CleanedPost'</span><span class="p">].</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Define mapping of predicted emotions to 'good', 'bad', or 'neutral'
+</span><span class="n">emotion_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'admiration'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'amusement'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'anger'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'annoyance'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'approval'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'caring'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'confusion'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'curiosity'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'desire'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'disappointment'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'disapproval'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'disgust'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'embarrassment'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'excitement'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'fear'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'gratitude'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'grief'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'joy'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'love'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'nervousness'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'neutral'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'optimism'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'pride'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'realization'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'relief'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'remorse'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'sadness'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'surprise'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'neutral'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'embarrassment'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'excitement'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'fear'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'gratitude'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'grief'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'joy'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'love'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'nervousness'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'optimism'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'pride'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'realization'</span><span class="p">:</span> <span class="s">'neutral'</span><span class="p">,</span>
+    <span class="s">'relief'</span><span class="p">:</span> <span class="s">'good'</span><span class="p">,</span>
+    <span class="s">'remorse'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'sadness'</span><span class="p">:</span> <span class="s">'bad'</span><span class="p">,</span>
+    <span class="s">'surprise'</span><span class="p">:</span> <span class="s">'neutral'</span>
+<span class="p">}</span>
+
+<span class="c1"># Apply the mapping to create a new column 'Categorized Sentiment'
+</span><span class="n">posts</span><span class="p">[</span><span class="s">'Categorized Sentiment'</span><span class="p">]</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="s">'Sentiment'</span><span class="p">].</span><span class="nb">map</span><span class="p">(</span><span class="n">emotion_mapping</span><span class="p">)</span>
+
+<span class="c1"># You can then visualize the counts of these new categories
+</span><span class="n">posts</span><span class="p">[</span><span class="s">'Categorized Sentiment'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">().</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">'Categorized Sentiment'</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s">'Sentiment Category'</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s">'Count'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Axes: title={'center': 'Categorized Sentiment'}, xlabel='Sentiment Category', ylabel='Count'&gt;
+</code></pre></div></div>
+
+<p><img src="/img/posts/Nintendo_Switch_2/nintendo_switch_sentimentanalysis_26_1.png" alt="png" /></p>
+
+<p>To simplify the emotions we gathered using the sentiment analysis model, we categorized them into 3 bins (“Neutral”, “Good” and “Bad”). Most posts fall into the Neutral and Good bins, a sign that the console has met expectations and customers are potentially happy about the purchase or excited to acquire it.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># bertopic inspired model helps reduce the appearence of stop words and improves topic represenation
+</span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">bertopic</span>
+<span class="kn">from</span> <span class="nn">bertopic</span> <span class="kn">import</span> <span class="n">BERTopic</span>
+<span class="kn">from</span> <span class="nn">bertopic.representation</span> <span class="kn">import</span> <span class="n">KeyBERTInspired</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">representation_model</span> <span class="o">=</span> <span class="n">KeyBERTInspired</span><span class="p">()</span>
+<span class="n">topic_model</span> <span class="o">=</span> <span class="n">BERTopic</span><span class="p">(</span><span class="n">embedding_model</span><span class="o">=</span><span class="s">"sentence-transformers/all-MiniLM-L6-v2"</span><span class="p">,</span> <span class="n">representation_model</span><span class="o">=</span><span class="n">representation_model</span><span class="p">,</span>
+                       <span class="n">min_topic_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">topics</span><span class="p">,</span> <span class="n">probs</span> <span class="o">=</span> <span class="n">topic_model</span><span class="p">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="s">'CleanedPost'</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">topic_model</span><span class="p">.</span><span class="n">get_topic_info</span><span class="p">()</span>
+</code></pre></div></div>
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    margin: 20px 0;
+}
+thead {
+    background-color: #f7f7f7;
+}
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+th {
+    background-color: #eaeaea;
+    font-weight: bold;
+}
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Topic</th>
+            <th>Count</th>
+            <th>Name</th>
+            <th>Representation</th>
+            <th>Representative Docs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>-1</td><td>432</td><td>-1_switch_games_nintendo_game</td><td>[switch, games, nintendo, game, playing, play,...]</td><td>[i know everyone wants to hate on this game fo...]</td></tr>
+        <tr><td>0</td><td>72</td><td>0_gameplay_game_games_play</td><td>[gameplay, game, games, play, build, combat,...]</td><td>[hello there! i'm brulo, director of flatline ...]</td></tr>
+        <tr><td>1</td><td>67</td><td>1_walmart_store_stock_inventory</td><td>[walmart, store, stock, inventory, stores,...]</td><td>[had been checking targets and walmarts in my ...]</td></tr>
+        <tr><td>2</td><td>62</td><td>2_1080p_ps4_framerate_60fps</td><td>[1080p, ps4, framerate, 60fps, 720p, 30fps,...]</td><td>[last update : june 7. new confirmed finds wil...]</td></tr>
+        <tr><td>3</td><td>61</td><td>3_controllers_controller_grip_buttons</td><td>[controllers, controller, grip, buttons,...]</td><td>[so, to preface this : i mostly love the new p...]</td></tr>
+        <tr><td>4</td><td>45</td><td>4_games_game_kirby_mario</td><td>[games, game, kirby, mario, play, pokemon,...]</td><td>[i usually play casual cs2 matches or league o...]</td></tr>
+        <tr><td>5</td><td>34</td><td>5_case_nintendo_accessories_carrying</td><td>[case, nintendo, accessories, carrying,...]</td><td>[i ordered these 4 cases to see which is the b...]</td></tr>
+        <tr><td>6</td><td>27</td><td>6_kart_karts_prix_nintendo</td><td>[kart, karts, prix, nintendo, mario,...]</td><td>[i ll start with the positives. the game oozes...]</td></tr>
+        <tr><td>7</td><td>26</td><td>7_nintendo_games_switch_console</td><td>[nintendo, games, switch, console, issues,...]</td><td>[source ( https : en - americas - support. nin...]</td></tr>
+    </tbody>
+</table>
+
+<p>While the relative order of topics varied daily, their core identities remained largely consistent throughout this process. Temporal analysis could offer valuable insights into how customer focus is shifting over time.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># drop first row empty string
+</span><span class="n">posts</span> <span class="o">=</span> <span class="n">posts</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">posts</span><span class="p">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">posts</span><span class="p">[</span><span class="s">'topic_id'</span><span class="p">]</span><span class="o">=</span> <span class="n">topics</span>
+
+<span class="c1"># Remove Outlier
+</span><span class="n">df_posts_filtered</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="n">posts</span><span class="p">[</span><span class="s">'topic_id'</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># add human readable topic names
+</span><span class="n">topic_id_to_name</span> <span class="o">=</span> <span class="p">{</span><span class="n">row</span><span class="p">[</span><span class="s">'Topic'</span><span class="p">]:</span> <span class="n">row</span><span class="p">[</span><span class="s">'Name'</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">topic_model</span><span class="p">.</span><span class="n">get_topic_info</span><span class="p">().</span><span class="n">iterrows</span><span class="p">()}</span>
+<span class="n">df_posts_filtered</span><span class="p">[</span><span class="s">'topic_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_posts_filtered</span><span class="p">[</span><span class="s">'topic_id'</span><span class="p">].</span><span class="nb">map</span><span class="p">(</span><span class="n">topic_id_to_name</span><span class="p">)</span>
+
+<span class="c1"># add human readable topic names
+</span><span class="n">topic_id_to_name</span> <span class="o">=</span> <span class="p">{</span><span class="n">row</span><span class="p">[</span><span class="s">'Topic'</span><span class="p">]:</span> <span class="n">row</span><span class="p">[</span><span class="s">'Name'</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">topic_model</span><span class="p">.</span><span class="n">get_topic_info</span><span class="p">().</span><span class="n">iterrows</span><span class="p">()}</span>
+<span class="n">df_posts_filtered</span><span class="p">[</span><span class="s">'topic_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_posts_filtered</span><span class="p">[</span><span class="s">'topic_id'</span><span class="p">].</span><span class="nb">map</span><span class="p">(</span><span class="n">topic_id_to_name</span><span class="p">)</span>
+
+<span class="n">sentiment_by_topic</span>
+</code></pre></div></div>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    margin: 20px 0;
+  }
+  thead {
+    background-color: #f0f0f0;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tbody tr:hover {
+    background-color: #eef6ff;
+  }
+  th {
+    background-color: #e2e8f0;
+    font-weight: bold;
+  }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic Name</th>
+      <th>Bad</th>
+      <th>Good</th>
+      <th>Neutral</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>0_gameplay_game_games_play</td><td>0.013889</td><td>0.388889</td><td>0.597222</td></tr>
+    <tr><td>1_walmart_store_stock_inventory</td><td>0.119403</td><td>0.208955</td><td>0.671642</td></tr>
+    <tr><td>2_1080p_ps4_framerate_60fps</td><td>0.096774</td><td>0.467742</td><td>0.435484</td></tr>
+    <tr><td>3_controllers_controller_grip_buttons</td><td>0.147541</td><td>0.393443</td><td>0.459016</td></tr>
+    <tr><td>4_games_game_kirby_mario</td><td>0.066667</td><td>0.555556</td><td>0.377778</td></tr>
+    <tr><td>5_case_nintendo_accessories_carrying</td><td>0.000000</td><td>0.441176</td><td>0.558824</td></tr>
+    <tr><td>6_kart_karts_prix_nintendo</td><td>0.111111</td><td>0.481481</td><td>0.407407</td></tr>
+    <tr><td>7_nintendo_games_switch_console</td><td>0.115385</td><td>0.076923</td><td>0.807692</td></tr>
+  </tbody>
+</table>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># stacked bar chart visualization
+# add labels to bar chart for each stacked bar
+</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sentiment_by_topic</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s">'barh'</span><span class="p">,</span> <span class="n">stacked</span><span class="o">=</span><span class="bp">True</span> <span class="p">,</span><span class="n">colormap</span><span class="o">=</span><span class="s">'Pastel1'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Sentiment by Topic'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Proportion'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Topic'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'Sentiment'</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span> <span class="o">=</span> <span class="s">'upper left'</span><span class="p">)</span>
+
+<span class="c1"># Add labels to the bars
+</span><span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="p">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s">'</span><span class="si">{</span><span class="n">w</span><span class="p">:.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">'</span> <span class="k">if</span> <span class="p">(</span><span class="n">w</span> <span class="p">:</span><span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">get_width</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s">''</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">container</span><span class="p">]</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">label_type</span><span class="o">=</span> <span class="s">'center'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+
+
+</code></pre></div></div>
+
+<p><img src="/img/posts/Nintendo_Switch_2/nintendo_switch_sentimentanalysis_39_0.png" alt="png" /></p>
+
+<p>Overall, the sentiment appears to lean heavily towards neutral, followed by a significant proportion of good sentiment, and a smaller but consistent presence of bad sentiment across most topics. No single topic is overwhelmingly negative or positive, suggesting a diverse range of opinions or discussions, with many comments simply being factual or non-emotional. While some topics like “games_game_kirby_mario” and “kart_karts_nintendo” have a noticeable “good” proportion.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># avg emption by topic
+</span><span class="n">emotion_by_topic</span> <span class="o">=</span> <span class="n">df_posts_filtered</span><span class="p">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'topic_name'</span><span class="p">)[</span><span class="s">'Sentiment'</span><span class="p">].</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="bp">True</span><span class="p">).</span><span class="n">unstack</span><span class="p">()</span>
+<span class="n">score_threshold</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">filtered_emotion_by_topic_data</span> <span class="o">=</span><span class="n">emotion_by_topic</span><span class="p">[(</span><span class="n">emotion_by_topic</span> <span class="o">&gt;</span> <span class="n">score_threshold</span><span class="p">).</span><span class="nb">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">index_text</span> <span class="o">=</span> <span class="n">filtered_emotion_by_topic_data</span><span class="p">.</span><span class="n">columns</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Create the heatmap
+</span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Rectangle</span>
+<span class="n">row_max</span> <span class="o">=</span> <span class="n">filtered_emotion_by_topic_data</span><span class="p">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">num_emotions</span> <span class="o">=</span> <span class="n">filtered_emotion_by_topic_data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Rows are emotions
+</span><span class="n">num_topics</span> <span class="o">=</span> <span class="n">filtered_emotion_by_topic_data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1"># Columns are topics
+</span>
+
+<span class="n">fig_width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">num_topics</span> <span class="o">*</span> <span class="mf">0.9</span><span class="p">)</span>  <span class="c1"># More space for each topic column
+</span><span class="n">fig_height</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">num_emotions</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">)</span> <span class="c1"># More space for each emotion row
+</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">fig_width</span><span class="p">,</span> <span class="n">fig_height</span><span class="p">))</span> <span class="c1"># Apply size
+</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">filtered_emotion_by_topic_data</span><span class="p">,</span>
+    <span class="n">annot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">fmt</span><span class="o">=</span><span class="s">'.2f'</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s">'YlGnBu'</span><span class="p">,</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s">'label'</span><span class="p">:</span> <span class="s">'Average Emotion Score'</span><span class="p">}</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row_idx</span><span class="p">,</span> <span class="n">emotion_label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filtered_emotion_by_topic_data</span><span class="p">.</span><span class="n">index</span><span class="p">):</span>
+    <span class="c1"># Get the topic with the maximum score for the current emotion
+</span>    <span class="n">max_topic_for_emotion</span> <span class="o">=</span> <span class="n">row_max</span><span class="p">[</span><span class="n">emotion_label</span><span class="p">]</span>
+    <span class="c1"># Get the column index (position) of that topic in the heatmap
+</span>    <span class="n">position</span> <span class="o">=</span> <span class="n">filtered_emotion_by_topic_data</span><span class="p">.</span><span class="n">columns</span><span class="p">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">max_topic_for_emotion</span><span class="p">)</span>
+
+    <span class="c1"># Add a red rectangle around the cell with the max value
+</span>    <span class="n">offset</span> <span class="o">=</span> <span class="mf">0.02</span>
+    <span class="n">shrink</span> <span class="o">=</span> <span class="mf">0.04</span> <span class="c1"># 2 * offset
+</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">position</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">row_idx</span> <span class="o">+</span> <span class="n">offset</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">shrink</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">shrink</span><span class="p">,</span>
+                       <span class="n">fill</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">'--'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Average Emotion Scores (Transposed) per Topic'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Emotion'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Topic'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/img/posts/Nintendo_Switch_2/nintendo_switch_sentimentanalysis_42_0.png" alt="png" /></p>
+
+<p>Neutrality is the most prevalent emotion across most discussions, particularly strong in topics like “gameplay_game_games_play” and “walmart_store_stock_inventory.” While emotions like curiosity and optimism emerge in specific topics such as “nintendo_games_switch_console” and “kart_karts_nintendo”.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_20newsgroups</span>
+<span class="kn">from</span> <span class="nn">sentence_transformers</span> <span class="kn">import</span> <span class="n">SentenceTransformer</span>
+<span class="kn">from</span> <span class="nn">bertopic</span> <span class="kn">import</span> <span class="n">BERTopic</span>
+<span class="kn">from</span> <span class="nn">umap</span> <span class="kn">import</span> <span class="n">UMAP</span>
+
+
+<span class="n">posts</span><span class="p">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c1"># visualize clusters of topics
+# wrap documents for easier reading in visualization
+</span><span class="n">topic_model</span><span class="p">.</span><span class="n">visualize_documents</span><span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="s">'CleanedPost'</span><span class="p">])</span>
+
+</code></pre></div></div>
+
+<p><img src="/img/posts/Nintendo_Switch_2/topics2d.png" alt="png" /></p>
+
+<p>The graph above shows the similarity and clustering of the topics, for example topic 3 and 5 are mostly talking about console peripherals.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">create_wordcloud_all_topics</span><span class="p">(</span><span class="n">topic_model</span><span class="p">,</span> <span class="n">top_n_words</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+
+    <span class="n">all_words_frequencies</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Iterate through all topics
+</span>    <span class="k">for</span> <span class="n">topic_id</span> <span class="ow">in</span> <span class="n">topic_model</span><span class="p">.</span><span class="n">get_topics</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">topic_id</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>  <span class="c1"># Skip the outlier
+</span>            <span class="k">continue</span>
+
+        <span class="c1"># Get the top words for the current topic
+</span>        <span class="c1"># topic_model.get_topic(topic_id) returns a list of (word, value) tuples
+</span>        <span class="n">topic_words</span> <span class="o">=</span> <span class="n">topic_model</span><span class="p">.</span><span class="n">get_topic</span><span class="p">(</span><span class="n">topic_id</span><span class="p">)</span>
+
+        <span class="c1"># Add to dictionary
+</span>        <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">topic_words</span><span class="p">[:</span><span class="n">top_n_words</span><span class="p">]:</span> <span class="c1"># Consider only top N words from each topic
+</span>            <span class="n">all_words_frequencies</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_words_frequencies</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">value</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_words_frequencies</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"No words found to generate a word cloud. The topic model might be empty or topics are not well-defined."</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Create the word cloud from all_word_frequencies
+</span>    <span class="n">wc</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">background_color</span><span class="o">=</span><span class="s">"white"</span><span class="p">,</span> <span class="n">max_words</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">400</span><span class="p">)</span>
+    <span class="n">wc</span><span class="p">.</span><span class="n">generate_from_frequencies</span><span class="p">(</span><span class="n">all_words_frequencies</span><span class="p">)</span>
+
+    <span class="c1"># Display the word cloud
+</span>    <span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wc</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">"bilinear"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">axis</span><span class="p">(</span><span class="s">"off"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Word Cloud for All Topics Combined"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_wordcloud_all_topics</span><span class="p">(</span><span class="n">topic_model</span><span class="p">,</span> <span class="n">top_n_words</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="nintendo_switch_sentimentanalysis_files/nintendo_switch_sentimentanalysis_47_0.png" alt="png" /></p>
+
+<p>Key themes revolve around gaming (e.g., “game,” “games,” “play,” “Nintendo,” “Switch,” “Mario”), hardware (e.g., “controller,” “controllers,” “joyscons,” “ps4,” “1080p”), and retail/inventory (e.g., “Walmart,” “store,” “stock,” “inventory”).</p>
+:ET
